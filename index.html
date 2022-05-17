@@ -14,7 +14,26 @@
     <header>
         <h1 class="page-title">Taskinator</h1>
         <p>CLick the button below to add a new task!</p>
-        <button class="btn" id="save-task">Add Task</button>
+        <form id="tazsk-form">
+            <!-- Able to add own task text box -->
+            <div class="form-group">
+                <input type="text" name="task-name" placeholder="Enter Task Name"/>
+            </div>
+
+            <!-- Adding task type feature -->
+            <div class="form-group">
+                <select name="task-type" class="select-dropdown">
+                    <option value="Print">Print</option>
+                    <option value="Web">Web</option>
+                    <option value="Mobile">Mobile</option>
+                </select>
+            </div>
+
+            <!-- Button that allows us to paste what was entered on screen -->
+            <div class="form-group">
+                <button class="btn" id="save-task" type="submit">Add Task</button>
+            </div>
+        </form>
     </header>
 
     <main class="page-content">
