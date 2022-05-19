@@ -10,8 +10,8 @@ var createFormHandler = function(event) {
     event.preventDefault(); 
 
     // allowing us to get the words in the text
-    var taskNameInput = document.querySelector("input[name='task-name']");
-    var taskTypeInput = document.querySelector("input[name='task-name']").value; 
+    var taskNameInput = document.querySelector("input[name='task-name']").value;
+    var taskTypeInput = document.querySelector("select[name='task-type']").value; 
 
     // checks if inputs are empty 
     if (taskNameInput === "" || taskTypeInput === "") {
@@ -21,7 +21,7 @@ var createFormHandler = function(event) {
     formEl.reset(); 
 
 // reset form fields for next task to be entered
-document.querySelector("input[name='task-name']").value="";
+document.querySelector("input[name='task-name']").value= "";
 document.querySelector("select[name='task-type']").selectIndex = 0; 
 
 var taskDataObj = {
