@@ -76,6 +76,8 @@ var completeEditTask = function(taskName, taskType, taskId) {
         }
     };
 
+    saveTasks(); 
+
     // reset form by removing the task id abd changing the button text back
     formEl.removeAttribute("data-task-id");
     document.querySelector("#save-task").textContent = "Add Task";
@@ -102,6 +104,9 @@ var createTaskEl = function(taskDataObj) {
     // task items id 
     taskDataObj.id = taskIdCounter;
     tasks.push(taskDataObj);
+
+    // saving to local storage
+    saveTasks(); 
 
     // add list item to list
     tasksToDoEl.appendChild(listItemEl);
@@ -209,6 +214,9 @@ var deleteTask = function(taskId) {
 
     // reassign ttasks array to be the same as updatedTaskArr
     tasks = updatedTaskArr;
+
+    saveTasks(); 
+
 };
 
 var taskStatusChangeHandler = function(event) {
@@ -239,7 +247,14 @@ var taskStatusChangeHandler = function(event) {
             }
         }
     }
+
+    saveTasks();
 };
+
+// saving tasks anytime something is added, updated, or deleted (localStorage)
+var saveTasks = function() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
 
 pageContentEl.addEventListener("click", taskButtonHandler); 
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
